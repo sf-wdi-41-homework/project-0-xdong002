@@ -1,0 +1,67 @@
+html,body {
+  height: 100%;
+  width: 100%;
+  background-color: skyblue;
+}
+
+.startButton {
+  display: inline-block;
+  border-radius: 5%;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  height: 40px;
+  width: 100px;
+  padding: 0px;
+  margin-left: 11.7%;
+  float: left;
+  margin-top: 10%;
+}
+
+.line{
+    position: absolute;
+    height: 180px;
+    width: 2%;
+    margin-left: 19%;
+    background-color: rgba(255,255,255,1);
+}
+
+#line_1{
+    top: 30px;
+}
+#line_2{
+    top: 250px;
+}
+#line_3{
+    top: 470px;
+}
+
+
+.gameBoard {
+  height: 90%;
+  width: 40%;
+  background-color: grey;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+#car {
+    position: absolute;
+    height: 110px;
+    width: 60px;
+    border-radius: 5%;
+    bottom: 18%;
+    left: 600px;
+}
+
+#score_div{
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 10%;
+    font-size: 35px;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    box-shadow: 4px 4px 0px 1px #808080;
+}
