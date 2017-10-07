@@ -1,6 +1,9 @@
 $(function() {
 
   var car = $('#car');
+  var line_1 = $('#line_1');
+  var line_2 = $('#line_2');
+  var line_3 = $('#line_3');
   var gameBoard = $('#gameBoard');
 
   var game_over = false;
