@@ -1,6 +1,13 @@
 $(function() {
 
+  var anim_id;
+  var score = $('#score');
+  var score_counter = 1;
+
   var car = $('#car');
+  var car2 = $('#car2');
+  var car3 = $('#car3');
+  var car4 = $('#car4');
   var line_1 = $('#line_1');
   var line_2 = $('#line_2');
   var line_3 = $('#line_3');
@@ -18,6 +25,10 @@ $(function() {
   var gameBoard_height = parseInt(gameBoard.height());
   var car_width = parseInt(car.width());
   var car_height = parseInt(car.height());
+
+
+  var speed = 2;
+  var line_speed = 5;
 
   $(document).on('keydown', function(e) {
       if (game_over === false) {
@@ -80,4 +91,85 @@ $(function() {
           move_down = requestAnimationFrame(down);
       }
   }
+//-----------------------------------------------------------------------------------
+
+  anim_id = requestAnimationFrame(repeat);
+
+  function repeat() {
+      if (collision(car, car2) || collision(car, car3) || collision(car, car4)) {
+          stop_the_game();
+          return;
+      }
+
+      score_counter++;
+
+      if (score_counter % 20 == 0) {
+          score.text(parseInt(score.text()) + 1);
+      }
+
+      car_down(car2);
+      car_down(car3);
+      car_down(car4);
+
+      line_down(line_1);
+      line_down(line_2);
+      line_down(line_3);
+
+      anim_id = requestAnimationFrame(repeat);
+  }
+
+  function car_down(car) {
+      var car_current_top = parseInt(car.css('top'));
+      if (car_current_top > gameBoard_height) {
+          car_current_top = -200;
+          var car_left = parseInt(Math.random() * (gameBoard_width - car_width));
+          car.css('left', car_left);
+      }
+      car.css('top', car_current_top + speed);
+  }
+
+  function line_down(line) {
+      var line_current_top = parseInt(line.css('top'));
+      if (line_current_top > gameBoard_height) {
+          line_current_top = -300;
+      }
+      line.css('top', line_current_top + line_speed);
+  }
+
+  function stop_the_game() {
+      game_over = true;
+      cancelAnimationFrame(anim_id);
+      cancelAnimationFrame(move_right);
+      cancelAnimationFrame(move_left);
+      cancelAnimationFrame(move_up);
+      cancelAnimationFrame(move_down);
+  }
+
+
+
+
+
+//----------------------------------------------------------------------
+function collision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight(true);
+    var w1 = $div1.outerWidth(true);
+    var b1 = y1 + h1;
+    var r1 = x1 + w1;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight(true);
+    var w2 = $div2.outerWidth(true);
+    var b2 = y2 + h2;
+    var r2 = x2 + w2;
+
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+}
+
+
+
+
+
 });
