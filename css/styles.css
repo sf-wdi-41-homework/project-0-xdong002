@@ -21,8 +21,8 @@ html,body {
 .line{
     position: absolute;
     height: 180px;
-    width: 2%;
-    margin-left: 19%;
+    width: 3%;
+    margin-left: 47.5%;
     background-color: rgba(255,255,255,1);
 }
 
@@ -37,7 +37,8 @@ html,body {
 }
 
 
-.gameBoard {
+#gameBoard {
+  position: relative;
   height: 90%;
   width: 40%;
   background-color: grey;
@@ -52,7 +53,7 @@ html,body {
     width: 60px;
     border-radius: 5%;
     bottom: 18%;
-    left: 40%;
+    left: 30%;
 }
 
 #score_div{
