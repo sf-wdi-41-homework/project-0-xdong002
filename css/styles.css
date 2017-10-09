@@ -1,10 +1,10 @@
 html,body {
   height: 100%;
   width: 100%;
-  background-color: skyblue;
+  background-image: url('../img/background.jpg');
 }
 
-.startButton {
+#startButton {
   display: inline-block;
   border-radius: 5%;
   background-color: orange;
@@ -36,6 +36,19 @@ html,body {
     top: 690px;
 }
 
+#gameBoard h1 {
+  text-align: center;
+}
+
+#gameBoard h3 {
+  text-align: center;
+}
+
+.restartBox {
+  color: white;
+  background-color: skyblue;
+}
+
 
 #gameBoard {
   position: relative;
@@ -45,6 +58,8 @@ html,body {
   display: block;
   margin: 0 auto;
   margin-top: 30px;
+  border-left: 5px solid lightgreen;
+  border-right: 5px solid lightgreen;
 }
 
 #car {
@@ -56,12 +71,21 @@ html,body {
     left: 30%;
 }
 
+#car1 {
+    position: absolute;
+    height: 110px;
+    width: 60px;
+    border-radius: 5%;
+    bottom: 18%;
+    left: 65%;
+}
+
 #car2 {
     position: absolute;
     height: 110px;
     width: 60px;
     border-radius: 5%;
-    bottom: 40%;
+    bottom: 90%;
     left: 50%;
 }
 
